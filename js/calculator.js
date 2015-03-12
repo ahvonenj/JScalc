@@ -86,7 +86,7 @@ var calculator =
 				}
 				break;
 			case "sqrt":
-				that.setOp('sqrt', 'sqrt');
+				that.operations.sqrt();
 				break;
 			case 4:
 				that.input(4);
@@ -111,7 +111,7 @@ var calculator =
 				}
 				break;
 			case "pow":
-				that.setOp('pow', 'pow');
+				that.operations.pow();
 				break;
 			case 1:
 				that.input(1);
@@ -176,7 +176,8 @@ var calculator =
 		},
 		sqrt: function()
 		{
-			
+			if(calculator.getVal() > 0)
+				calculator.setVal(Math.sqrt(parseFloat(calculator.getVal())));
 		},
 		mult: function()
 		{
@@ -184,7 +185,8 @@ var calculator =
 		},
 		pow: function()
 		{
-			
+			var f = parseFloat(calculator.getVal());
+			calculator.setVal((f * f));
 		},
 		minus: function()
 		{
