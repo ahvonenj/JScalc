@@ -1,30 +1,32 @@
 var calculator = 
 {
-	operation: '',
-	mem: null,
+	// Calculator variables
+	operation: '', // Current operation
+	mem: null, // Saved value (so that we can, i.e. sum 2 values)
 	
 	bindKeys: function()
 	{
+		// Bind calculator keys
 		$(document).on('click', '#calculator_table tr:not(:first-child) td', function(event) { calculator.keyPadPress(event); });
 	},
 	
-	getVal: function()
+	getVal: function() // Get current visible value
 	{
 		return $('#calc_result').val();
 	},
-	setVal: function(value)
+	setVal: function(value) // Set current visible value
 	{
 		$('#calc_result').val(value);
 	},
-	clearVal: function()
+	clearVal: function() // Clear current visible value
 	{
 		$('#calc_result').val('0');
 	},
-	setOp: function(op, textop)
+	setOp: function(op, textop) // Set current math operation
 	{
 		this.operation = op;
 		
-		if(textop == "pow")
+		if(textop == "pow") // Pow and Sqrt need special html character
 		{
 			$('#operation_icon').html('x&sup2;');
 		}
@@ -37,9 +39,10 @@ var calculator =
 			$('#operation_icon').text(textop);
 		}
 		
+		// Inform the input function that the visible value needs to be cleared
 		this.clearOnOperation = true;
 	},
-	clearOp: function()
+	clearOp: function() // Clear all ongoing operations
 	{
 		this.operation = '';
 		$('#operation_icon').text('');
@@ -49,7 +52,7 @@ var calculator =
 	keyPadPress: function(event)
 	{
 		var that = this;
-		var key = $(event.target).data('key');
+		var key = $(event.target).data('key'); // Figure which calculator button was pressed
 
 		console.log(key);
 		
@@ -66,6 +69,10 @@ var calculator =
 				that.input(9);
 				break;
 			case "divide":
+				/* 
+					These ifs are for 'comboing' operations.
+					With these the user is able to spam something like 7+7*7/7-7 without pressing equals every time
+				*/
 				if(that.operation == '')
 				{
 					that.mem = that.getVal();
@@ -190,13 +197,18 @@ var calculator =
 		},
 		equals: function()
 		{
+			// Check if we need to do some operation
 			if(calculator.operation != null)
 			{
+				// See if we can do the selected operation
 				if(typeof calculator.operations[calculator.operation] != 'undefined')
 				{
+					// Perform the selected operation
 					calculator.setVal(calculator.operations[calculator.operation]());
 				}
 			}
+			
+			// Clear operations
 			calculator.clearOp();
 		},
 		plus: function()
@@ -207,13 +219,14 @@ var calculator =
 	
 	clearOnOperation: true,
 	
-	input: function(input)
+	input: function(input) // Function for calculator inputs
 	{
 		var oldval = this.getVal();
 		
+		// We need to know if the input is numeric or a decimal point
 		if(input != ".")
 		{
-			if(oldval.indexOf('.') > -1)
+			if(oldval.indexOf('.') > -1) // Calculator input has a decimal point
 			{
 				if(this.clearOnOperation)
 				{
@@ -224,12 +237,11 @@ var calculator =
 					var newval = oldval.toString() + input.toString();
 				}
 			}
-			else
+			else // Calculator input does not have a decimal point
 			{
-				if(oldval == 0 || this.clearOnOperation)
+				if(oldval == 0 || this.clearOnOperation) // Does the calculator say "0" ?
 				{
 					var newval = input.toString();
-					
 				}
 				else
 				{
