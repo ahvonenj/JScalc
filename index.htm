@@ -42,8 +42,11 @@
 		<div id = "wrapper">
 			<table id = "calculator_table">
 				<tr>
-					<td colspan = "5">
-						<input type = "text" id = "calc_result" />
+					<td colspan = "4">
+						<input type = "text" id = "calc_result" value = "0" />
+					</td>
+					<td id = "operation_icon">
+						NOP
 					</td>
 				</tr>
 				<tr>
@@ -65,11 +68,13 @@
 					<td data-key = "2">2</td>
 					<td data-key = "3">3</td>
 					<td data-key = "minus">-</td>
-					<td data-key = "equals" rowspan = "2">=</td>
+					
+					<td data-key = "plus">+</td>
 				</tr>
 				<tr>
 					<td data-key = "0" colspan = "3">0</td>
-					<td data-key = "plus">+</td>
+					<td data-key = "CE">CE</td>
+					<td data-key = "equals">=</td>
 				</tr>
 			</table>
 		</div>
