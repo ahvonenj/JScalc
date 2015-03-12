@@ -24,7 +24,7 @@ html, body
 
 body
 {
-	font-family: 'Source Code Pro';
+	font-family: Arial, 'Source Code Pro';
 	background-color: #bdc3c7;
 	overflow: hidden;
 }
@@ -40,6 +40,11 @@ body
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
+	color: #31353D;
+	
+	min-width: 320px;
+	min-height: 210px;
+	overflow: hidden;
 }
 
 #calculator_table
@@ -53,7 +58,7 @@ body
 
 #calculator_table td
 {
-	border: 1px solid black;
+	border: 1px solid #95a5a6;
 	text-align: center;
 	font-size: 18pt;
 }

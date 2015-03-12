@@ -23,7 +23,20 @@ var calculator =
 	setOp: function(op, textop)
 	{
 		this.operation = op;
-		$('#operation_icon').text(textop);
+		
+		if(textop == "pow")
+		{
+			$('#operation_icon').html('x&sup2;');
+		}
+		else if(textop == "sqrt")
+		{
+			$('#operation_icon').html('&radic;');
+		}
+		else
+		{
+			$('#operation_icon').text(textop);
+		}
+		
 		this.clearOnOperation = true;
 	},
 	clearOp: function()
@@ -61,10 +74,12 @@ var calculator =
 				else
 				{
 					that.operations.equals();
+					that.mem = that.getVal();
+					that.setOp('divide', '/');
 				}
 				break;
 			case "sqrt":
-
+				that.setOp('sqrt', 'sqrt');
 				break;
 			case 4:
 				that.input(4);
@@ -84,10 +99,12 @@ var calculator =
 				else
 				{
 					that.operations.equals();
+					that.mem = that.getVal();
+					that.setOp('mult', '*');
 				}
 				break;
 			case "pow":
-				
+				that.setOp('pow', 'pow');
 				break;
 			case 1:
 				that.input(1);
@@ -107,6 +124,9 @@ var calculator =
 				else
 				{
 					that.operations.equals();
+					that.mem = that.getVal();
+					that.setOp('minus', '-');
+					
 				}
 				break;
 			case "plus":
@@ -118,6 +138,8 @@ var calculator =
 				else
 				{
 					that.operations.equals();
+					that.mem = that.getVal();
+					that.setOp('plus', '+');
 				}
 				break;
 			case 0:
@@ -140,7 +162,7 @@ var calculator =
 	{
 		divide: function()
 		{
-			return (calculator.mem / calculator.getVal());
+			return (parseFloat(calculator.mem) / parseFloat(calculator.getVal()));
 		},
 		sqrt: function()
 		{
@@ -148,7 +170,7 @@ var calculator =
 		},
 		mult: function()
 		{
-			
+			return (parseFloat(calculator.mem) * parseFloat(calculator.getVal()));
 		},
 		pow: function()
 		{
@@ -156,7 +178,7 @@ var calculator =
 		},
 		minus: function()
 		{
-			
+			return (parseFloat(calculator.mem) - parseFloat(calculator.getVal()));
 		},
 		clear: function()
 		{
@@ -176,7 +198,7 @@ var calculator =
 		},
 		plus: function()
 		{
-			
+			return (parseFloat(calculator.mem) + parseFloat(calculator.getVal()));
 		}	
 	},
 	
