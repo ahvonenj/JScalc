@@ -42,7 +42,7 @@ var calculator =
 	clearOp: function()
 	{
 		this.operation = '';
-		$('#operation_icon').text('NOP');
+		$('#operation_icon').text('');
 		this.clearOnOperation = false;
 	},
 	
@@ -145,6 +145,9 @@ var calculator =
 			case 0:
 				that.input(0);
 				break;
+			case "dot":
+				that.input(".");
+				break;
 			case "CE":
 				that.operations.clear();
 				break;
@@ -204,14 +207,47 @@ var calculator =
 	
 	clearOnOperation: true,
 	
-	input: function(num)
+	input: function(input)
 	{
 		var oldval = this.getVal();
-		var newval = (oldval == 0 || this.clearOnOperation) ? num.toString() : oldval.toString() + num.toString();
 		
-		this.clearOnOperation = false;
-		
-		this.setVal(newval);
+		if(input != ".")
+		{
+			if(oldval.indexOf('.') > -1)
+			{
+				if(this.clearOnOperation)
+				{
+					var newval = input.toString();
+				}
+				else
+				{
+					var newval = oldval.toString() + input.toString();
+				}
+			}
+			else
+			{
+				if(oldval == 0 || this.clearOnOperation)
+				{
+					var newval = input.toString();
+					
+				}
+				else
+				{
+					var newval = oldval.toString() + input.toString();
+				}
+			}
+			
+			this.clearOnOperation = false;			
+			this.setVal(newval);
+		}
+		else
+		{
+			if(oldval.indexOf('.') == -1)
+			{
+				var newval = oldval.toString() + ".";			
+				this.setVal(newval);
+			}
+		}
 	}
 	
 };
