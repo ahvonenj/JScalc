@@ -34,6 +34,7 @@ body
 	width: 100%;
 	height: 100%;
 	border-collapse: collapse;
+	table-layout: fixed;
 }
 
 #calculator_table td
@@ -44,12 +45,12 @@ body
 
 #calculator_table tr:first-child td
 {
-	height: 75px;
+
 }
 
 #calculator_table tr:not(:first-child) td:last-child
 {
-	width: 150px;
+
 }
 
 #calc_result
