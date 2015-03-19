@@ -1,4 +1,4 @@
-var testrunner = require("qunitjs");
+var testrunner = require("qunit");
 
 testrunner.setup(
 {
