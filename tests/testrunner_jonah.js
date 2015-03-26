@@ -46,7 +46,7 @@ testrunner.setup(
 testrunner.run(
 {
 	deps: "../js/res/jquery-2.1.3.js",
-    code: "../js/calculator.js",
+    code: "calculator.testable.js",
     tests: "tests_jonah.js"
 }, function(err, report) 
 {

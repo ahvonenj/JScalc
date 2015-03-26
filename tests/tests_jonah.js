@@ -1,13 +1,13 @@
 test("Testing the tester", function (assert) 
 {
-    var isthisok = false;
-    
-    $('#calc_result').val('1');
-    
-    if(calculator.getVal == '1')
-    {
-        isthisok = true;
-    }
-    
-    ok(isthisok, "I hope that was ok?");
+	var expected = 10;
+	
+	expect(expected);
+	
+    for(var i = 0; i < expected; i++)
+	{
+		var actual = Math.random() * 100;
+		calculator.setVal(actual);
+		assert.equal(calculator.simulatedResult, actual, "Testing calculator setVal()"); 
+	}
 });
