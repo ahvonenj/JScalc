@@ -44,7 +44,7 @@ testrunner.run(
 {
 	deps: "../js/res/jquery-2.1.3.js",
     code: "calculator.testable.js",
-    tests: "tsts/tests_jonah.js"
+    tests: "tests/tests_jonah.js"
 }, function(err, report) 
 {
     console.dir(report);
