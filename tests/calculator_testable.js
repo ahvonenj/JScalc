@@ -1,4 +1,4 @@
-var calculator = 
+exports.calculator = 
 {
 	// Calculator variables
 	operation: '', // Current operation
