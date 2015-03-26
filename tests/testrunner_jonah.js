@@ -40,9 +40,11 @@ testrunner.setup(
     maxBlockDuration: 2000
 });
 
+// "/var/lib/jenkins/jobs/JonahJob/workspace/js/res/jquery-2.1.3.js"
+
 testrunner.run(
 {
-    code: ["/var/lib/jenkins/jobs/JonahJob/workspace/tests/calculator.testable.js", "/var/lib/jenkins/jobs/JonahJob/workspace/js/res/jquery-2.1.3.js"],
+    code: "/var/lib/jenkins/jobs/JonahJob/workspace/tests/calculator.testable.js",
     tests: "/var/lib/jenkins/jobs/JonahJob/workspace/tests/tests_jonah.js"
 }, function(err, report) 
 {
