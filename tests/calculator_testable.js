@@ -50,7 +50,7 @@ exports.calculator =
 		this.clearOnOperation = false;
 	},
 	
-	keyPadPress: function(event, key)
+	keyPadPress: function(key)
 	{
 		var that = this;
 		//var key = $(event.target).data('key'); // Figure which calculator button was pressed
