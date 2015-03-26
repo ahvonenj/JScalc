@@ -1,6 +1,13 @@
-test("a basic test example", function () 
+test("Testing the tester", function (assert) 
 {
-    ok(true, "this test is fine");
-    var value = "hello";
-    equal("hello", value, "We expect value to be hello");
+    var isthisok = false;
+    
+    $('#calc_result').val('1');
+    
+    if(calculator.getVal == '1')
+    {
+        isthisok = true;
+    }
+    
+    ok(isthisok, "I hope that was ok?");
 });
