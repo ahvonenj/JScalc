@@ -33,9 +33,6 @@ testrunner.setup(
     // run test coverage tool
     coverage: false,
 
-    // define dependencies, which are required then before code
-    deps: null,
-
     // define namespace your code will be attached to on global['your namespace']
     namespace: null,
 
@@ -47,7 +44,7 @@ testrunner.run(
 {
 	deps: "../js/res/jquery-2.1.3.js",
     code: "calculator.testable.js",
-    tests: "tests_jonah.js"
+    tests: "tsts/tests_jonah.js"
 }, function(err, report) 
 {
     console.dir(report);
