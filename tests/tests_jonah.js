@@ -1,13 +1,27 @@
-test("Testing the tester", function (assert) 
+test("setVal()", function (assert) 
 {
-	var expected = 10;
+	var expectedAssertions = 10;
 	
-	expect(expected);
+	expect(expectedAssertions);
 	
-    for(var i = 0; i < expected; i++)
+    for(var i = 0; i < expectedAssertions; i++)
 	{
-		var actual = Math.random() * 100;
-		calculator.setVal(actual);
-		assert.equal(calculator.simulatedResult, actual, "Testing calculator setVal()"); 
+		var expectedValue = Math.random() * 100;
+		calculator.setVal(expectedValue);
+		assert.equal(calculator.simulatedResult, expectedValue, "setVal(" + expectedValue + ")"); 
+	}
+});
+
+test("getVal()", function (assert) 
+{
+	var expectedAssertions = 10;
+	
+	expect(expectedAssertions);
+	
+    for(var i = 0; i < expectedAssertions; i++)
+	{
+		var expectedValue = Math.random() * 100;
+		calculator.simulatedResult = expectedValue;
+		assert.equal(calculator.getVal(), expectedValue, "Testing calculator getVal(" + expectedValue + ")"); 
 	}
 });
