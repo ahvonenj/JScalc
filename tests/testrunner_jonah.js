@@ -44,7 +44,7 @@ testrunner.setup(
 
 testrunner.run(
 {
-	code: {path: "/var/lib/jenkins/jobs/JonahJob/workspace/tests/calculator.testable.js", namespace: "calculator"},
+	code: {path: "/var/lib/jenkins/jobs/JonahJob/workspace/tests/calculator_testable.js", namespace: "calculator"},
     tests: "/var/lib/jenkins/jobs/JonahJob/workspace/tests/tests_jonah.js"
 }, function(err, report) 
 {
