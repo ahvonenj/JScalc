@@ -226,7 +226,7 @@ exports.calculator =
 	input: function(input) // Function for calculator inputs
 	{
 		var oldval = this.getVal();
-		
+		console.log(oldval + ' oo');
 		// We need to know if the input is numeric or a decimal point
 		if(input != ".")
 		{
