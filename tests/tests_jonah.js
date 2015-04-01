@@ -45,6 +45,8 @@ test("keyPadPress(0-9)", function(assert)
 {
     for(var i = 0; i < 10; i++)
 	{
+		calculator.simulatedResult = 0;
+		
 		calculator.keyPadPress(i);
 		assert.equal(calculator.simulatedResult, i, "Testing calculator keypad number: " + i); 
 		assert.equal(calculator.clearOnOperation, false, "Asserting calculator clearOnOperation boolean: " + i); 
@@ -63,10 +65,10 @@ test("keyPadPress(divide)", function(assert)
 	assert.equal(calculator.simulatedOperationSign, '/', "Asserting calculator current operation sign"); 
 	assert.equal(calculator.clearOnOperation, true, "Asserting calculator clearOnOperation boolean"); 
 	
-	this.simulatedResult = 0;
-	this.operation = '';
-	this.simulatedOperationSign = '';
-	this.clearOnOperation = false;
+	calculator.simulatedResult = 0;
+	calculator.operation = '';
+	calculator.simulatedOperationSign = '';
+	calculator.clearOnOperation = false;
 });
 
 test("keyPadPress(mult)", function(assert) 
@@ -81,10 +83,6 @@ test("keyPadPress(mult)", function(assert)
 	assert.equal(calculator.simulatedOperationSign, '*', "Asserting calculator current operation sign"); 
 	assert.equal(calculator.clearOnOperation, true, "Asserting calculator clearOnOperation boolean"); 
 	
-	this.simulatedResult = 0;
-	this.operation = '';
-	this.simulatedOperationSign = '';
-	this.clearOnOperation = false;
 });
 
 test("keyPadPress(minus)", function(assert) 
@@ -99,10 +97,6 @@ test("keyPadPress(minus)", function(assert)
 	assert.equal(calculator.simulatedOperationSign, '-', "Asserting calculator current operation sign"); 
 	assert.equal(calculator.clearOnOperation, true, "Asserting calculator clearOnOperation boolean"); 
 	
-	this.simulatedResult = 0;
-	this.operation = '';
-	this.simulatedOperationSign = '';
-	this.clearOnOperation = false;
 });
 
 test("keyPadPress(plus)", function(assert) 
@@ -117,10 +111,6 @@ test("keyPadPress(plus)", function(assert)
 	assert.equal(calculator.simulatedOperationSign, '+', "Asserting calculator current operation sign"); 
 	assert.equal(calculator.clearOnOperation, true, "Asserting calculator clearOnOperation boolean"); 
 	
-	this.simulatedResult = 0;
-	this.operation = '';
-	this.simulatedOperationSign = '';
-	this.clearOnOperation = false;
 });
 
 test("keyPadPress(CE)", function(assert) 
