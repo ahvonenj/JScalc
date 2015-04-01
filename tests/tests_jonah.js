@@ -168,7 +168,7 @@ test("Testing INT_MAX + 1 operation", function(assert)
 	calculator.mem = 1;
 	calculator.setOp('plus', '+');
 	calculator.operations.equals();
-	console.log(calculator.simulatedResult);
+	console.log(calculator.simulatedResult+1);
 	//assert.equal(calculator.simulatedResult, '', "Testing INT_MAX + 1 operation" + keyToTest); 
 });
 
