@@ -164,11 +164,14 @@ test("keyPadPress() - with invalid key", function(assert)
 
 test("Testing INT_MAX + 1 operation", function(assert) 
 {
+	expect(0);
+	
 	calculator.simulatedResult = Number.MAX_VALUE;
-	calculator.mem = 1;
+	calculator.mem = 10;
 	calculator.setOp('plus', '+');
 	calculator.operations.equals();
 	console.log(calculator.simulatedResult+1);
+	
 	//assert.equal(calculator.simulatedResult, '', "Testing INT_MAX + 1 operation" + keyToTest); 
 });
 
