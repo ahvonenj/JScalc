@@ -132,22 +132,22 @@ test("keyPadPress(CE)", function(assert)
 
 	calculator.keyPadPress('CE');
 	
-	assert.equal(calculator.operation, '', "Testing CE operation:"); 
-	assert.equal(calculator.simulatedOperationSign, '', "Testing CE operation sign"); 
-	assert.equal(calculator.clearOnOperation, false, "Testing CE clear"); 
-	assert.equal(calculator.simulatedResult, 0, "Testing CE result"); 
+	assert.equal(calculator.operation, '', "Testing CE operation (1)"); 
+	assert.equal(calculator.simulatedOperationSign, '', "Testing CE operation sign (1)"); 
+	assert.equal(calculator.clearOnOperation, false, "Testing CE clear (1)"); 
+	assert.equal(calculator.simulatedResult, 0, "Testing CE result (1)"); 
 	
 	calculator.operation = 'divide';
 	calculator.simulatedOperationSign = '/';
 	calculator.clearOnOperation = true;
-	calculator.simulatedResult = 10;
+	calculator.simulatedResult = 50;
 
 	calculator.keyPadPress('CE');
 	
-	assert.equal(calculator.operation, '', "Testing CE operation:"); 
-	assert.equal(calculator.simulatedOperationSign, '', "Testing CE operation sign"); 
-	assert.equal(calculator.clearOnOperation, false, "Testing CE clear"); 
-	assert.equal(calculator.simulatedResult, 0, "Testing CE result"); 
+	assert.equal(calculator.operation, '', "Testing CE operation (2)"); 
+	assert.equal(calculator.simulatedOperationSign, '', "Testing CE operation sign (2)"); 
+	assert.equal(calculator.clearOnOperation, false, "Testing CE clear (2)"); 
+	assert.equal(calculator.simulatedResult, 0, "Testing CE result (2)"); 
 });
 
 test("keyPadPress() - with invalid key", function(assert) 
@@ -158,9 +158,17 @@ test("keyPadPress() - with invalid key", function(assert)
 	{
 		var keyToTest = randomKeys[i];
 		calculator.keyPadPress(keyToTest);
-		assert.equal(calculator.operation, '', "Testing invalid key A: " + keyToTest); 
-		assert.equal(calculator.mem, null, "Testing invalid key B: " + keyToTest); 
+		assert.equal(calculator.operation, '', "Testing invalid key: " + keyToTest); 
 	}
 });
 
+test("Testing INT_MAX + 1 operation", function(assert) 
+{
+	calculator.simulatedResult = Number.MAX_VALUE;
+	calculator.mem = 1;
+	calculator.setOp('plus', '+');
+	calculator.operations.equals();
+	console.log(calculator.simulatedResult);
+	//assert.equal(calculator.simulatedResult, '', "Testing INT_MAX + 1 operation" + keyToTest); 
+});
 
