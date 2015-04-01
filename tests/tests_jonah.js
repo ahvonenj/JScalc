@@ -154,9 +154,9 @@ test("keyPadPress() - with invalid key", function(assert)
 {
 	var randomKeys = ['', 'ZZ', 'XX', 'AA', -1, 99, '&', '[', '_'];
 	
-    for(var i = 0; i < 10; i++)
+    for(var i = 0; i < randomKeys.length; i++)
 	{
-		var keyToTest = randomKeys[Math.floor(Math.random() * (randomKeys.length - 1) + 1];
+		var keyToTest = randomKeys[i];
 		calculator.keyPadPress(keyToTest);
 		assert.equal(calculator.operation, '', "Testing invalid key A: " + keyToTest); 
 		assert.equal(calculator.mem, null, "Testing invalid key B: " + keyToTest); 
