@@ -4,6 +4,7 @@ exports.calculator =
 	operation: '', // Current operation
 	mem: null, // Saved value (so that we can, i.e. sum 2 values)
 	simulatedResult: null,
+	simulatedOperationSign: '',
 	
 	bindKeys: function()
 	{
@@ -29,15 +30,15 @@ exports.calculator =
 		
 		if(textop == "pow") // Pow and Sqrt need special html character
 		{
-			$('#operation_icon').html('x&sup2;');
+			this.simulatedOperationSign = 'x&sup2;';
 		}
 		else if(textop == "sqrt")
 		{
-			$('#operation_icon').html('&radic;');
+			this.simulatedOperationSign = '&radic;';
 		}
 		else
 		{
-			$('#operation_icon').text(textop);
+			this.simulatedOperationSign = textop;
 		}
 		
 		// Inform the input function that the visible value needs to be cleared
@@ -46,7 +47,7 @@ exports.calculator =
 	clearOp: function() // Clear all ongoing operations
 	{
 		this.operation = '';
-		$('#operation_icon').text('');
+		this.simulatedOperationSign = '';
 		this.clearOnOperation = false;
 	},
 	
