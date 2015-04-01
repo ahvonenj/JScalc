@@ -55,10 +55,10 @@ test("keyPadPress(divide)", function(assert)
 {
 	var expectedValue = Math.floor(Math.random() * 1000);
 	
-	calculator.simulatedResult = expectedValue
+	calculator.simulatedResult = expectedValue;
 	
 	calculator.keyPadPress('divide');
-	assert.equal(calculator.mem, expectedValue, "Testing calculator keypad memory"); 
+	assert.equal(calculator.mem, calculator.simulatedResult, "Testing calculator keypad memory"); 
 	assert.equal(calculator.operation, 'divide', "Asserting calculator current operation"); 
 	assert.equal(calculator.simulatedOperationSign, '/', "Asserting calculator current operation sign"); 
 	assert.equal(calculator.clearOnOperation, true, "Asserting calculator clearOnOperation boolean"); 
@@ -73,10 +73,10 @@ test("keyPadPress(mult)", function(assert)
 {
 	var expectedValue = Math.floor(Math.random() * 1000);
 	
-	calculator.simulatedResult = expectedValue
+	calculator.simulatedResult = expectedValue;
 	
 	calculator.keyPadPress('mult');
-	assert.equal(calculator.mem, expectedValue, "Testing calculator keypad memory"); 
+	assert.equal(calculator.mem, calculator.simulatedResult, "Testing calculator keypad memory"); 
 	assert.equal(calculator.operation, 'mult', "Asserting calculator current operation"); 
 	assert.equal(calculator.simulatedOperationSign, '*', "Asserting calculator current operation sign"); 
 	assert.equal(calculator.clearOnOperation, true, "Asserting calculator clearOnOperation boolean"); 
@@ -91,10 +91,10 @@ test("keyPadPress(minus)", function(assert)
 {
 	var expectedValue = Math.floor(Math.random() * 1000);
 	
-	calculator.simulatedResult = expectedValue
+	calculator.simulatedResult = expectedValue;
 	
 	calculator.keyPadPress('minus');
-	assert.equal(calculator.mem, expectedValue, "Testing calculator keypad memory"); 
+	assert.equal(calculator.mem, calculator.simulatedResult, "Testing calculator keypad memory"); 
 	assert.equal(calculator.operation, 'minus', "Asserting calculator current operation"); 
 	assert.equal(calculator.simulatedOperationSign, '-', "Asserting calculator current operation sign"); 
 	assert.equal(calculator.clearOnOperation, true, "Asserting calculator clearOnOperation boolean"); 
@@ -109,10 +109,10 @@ test("keyPadPress(plus)", function(assert)
 {
 	var expectedValue = Math.floor(Math.random() * 1000);
 	
-	calculator.simulatedResult = expectedValue
+	calculator.simulatedResult = expectedValue;
 	
 	calculator.keyPadPress('plus');
-	assert.equal(calculator.mem, expectedValue, "Testing calculator keypad memory"); 
+	assert.equal(calculator.mem, calculator.simulatedResult, "Testing calculator keypad memory"); 
 	assert.equal(calculator.operation, 'plus', "Asserting calculator current operation"); 
 	assert.equal(calculator.simulatedOperationSign, '+', "Asserting calculator current operation sign"); 
 	assert.equal(calculator.clearOnOperation, true, "Asserting calculator clearOnOperation boolean"); 
