@@ -3,24 +3,28 @@ var calculator =
 	// Calculator variables
 	operation: '', // Current operation
 	mem: null, // Saved value (so that we can, i.e. sum 2 values)
+	operationSign: '',
+	result: '',
 	
 	bindKeys: function()
 	{
 		// Bind calculator keys
-		$(document).on('click', '#calculator_table tr:not(:first-child) td', function(event) { calculator.keyPadPress(event); });
+		$(document).on('click', '#calculator_table tr:not(:first-child) td', function(event) { calculator.keyPadPress($(event.target).data('key')); });
 	},
 	
 	getVal: function() // Get current visible value
 	{
-		return $('#calc_result').val();
+		return this.result;
 	},
 	setVal: function(value) // Set current visible value
 	{
 		$('#calc_result').val(value);
+		this.result = value;
 	},
 	clearVal: function() // Clear current visible value
 	{
 		$('#calc_result').val('0');
+		this.result = 0;
 	},
 	setOp: function(op, textop) // Set current math operation
 	{
@@ -29,14 +33,17 @@ var calculator =
 		if(textop == "pow") // Pow and Sqrt need special html character
 		{
 			$('#operation_icon').html('x&sup2;');
+			this.operationSign = 'x&sup2;';
 		}
 		else if(textop == "sqrt")
 		{
 			$('#operation_icon').html('&radic;');
+			this.operationSign = '&radic;';
 		}
 		else
 		{
 			$('#operation_icon').text(textop);
+			this.operationSign = textop;
 		}
 		
 		// Inform the input function that the visible value needs to be cleared
@@ -46,13 +53,13 @@ var calculator =
 	{
 		this.operation = '';
 		$('#operation_icon').text('');
+		this.operationSign = '';
 		this.clearOnOperation = false;
 	},
 	
-	keyPadPress: function(event)
+	keyPadPress: function(key)
 	{
 		var that = this;
-		var key = $(event.target).data('key'); // Figure which calculator button was pressed
 
 		console.log(key);
 		
@@ -228,7 +235,7 @@ var calculator =
 		// We need to know if the input is numeric or a decimal point
 		if(input != ".")
 		{
-			if(oldval.indexOf('.') > -1) // Calculator input has a decimal point
+			if(oldval.toString().indexOf('.') > -1) // Calculator input has a decimal point
 			{
 				if(this.clearOnOperation)
 				{
@@ -256,7 +263,7 @@ var calculator =
 		}
 		else
 		{
-			if(oldval.indexOf('.') == -1)
+			if(oldval.toString().indexOf('.') == -1)
 			{
 				var newval = oldval.toString() + ".";			
 				this.setVal(newval);
@@ -265,3 +272,6 @@ var calculator =
 	}
 	
 };
+
+if(typeof exports !== 'undefined')
+	exports.calculator = calculator;
