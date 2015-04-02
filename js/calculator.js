@@ -1,7 +1,7 @@
 if(typeof exports !== 'undefined')
 {
 	var jsdom = require('jsdom').jsdom;
-	var myWindow = jsdom().createWindow();
+	var myWindow = jsdom().defaultView;
 	var $ = require('jquery').create(myWindow);
 	var jQuery = $;
   
