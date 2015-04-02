@@ -1,4 +1,4 @@
-exports.calculator = 
+var calculator = 
 {
 	// Calculator variables
 	operation: '', // Current operation
@@ -266,3 +266,5 @@ exports.calculator =
 	}
 	
 };
+
+exports.calculator = calculator;
