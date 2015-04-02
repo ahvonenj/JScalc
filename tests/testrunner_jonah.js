@@ -46,6 +46,7 @@ testrunner.setup(
 
 testrunner.run(
 {
+	deps: 'jquery',
 	code: "/var/lib/jenkins/jobs/JonahJob/workspace/js/calculator.js",
     tests: "/var/lib/jenkins/jobs/JonahJob/workspace/tests/tests_jonah.js"
 }, function(err, report) 
