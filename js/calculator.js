@@ -1,3 +1,9 @@
+if(typeof exports !== 'undefined')
+{
+	var $ = require('jquery');
+	var jQuery = require('jquery');
+}
+
 var calculator = 
 {
 	// Calculator variables
