@@ -285,6 +285,7 @@ var calculator =
 	
 };
 
+// Export the calculator so it is exposed to node-qunit test scope
 if(typeof exports !== 'undefined')
 {
 	exports.calculator = calculator;
