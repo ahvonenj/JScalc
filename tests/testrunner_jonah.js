@@ -48,7 +48,7 @@ testrunner.run(
     tests: "/var/lib/jenkins/jobs/JonahJob/workspace/tests/tests_jonah.js"
 }, function(err, report) 
 {
-	console.err(report);
+	console.dir(err);
     console.dir(report);
 });
 
