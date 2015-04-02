@@ -1,11 +1,12 @@
+// Server side jquery hack because we basically want to 
+// forcefully test a client side script with a server side qunit
 if(typeof exports !== 'undefined')
 {
 	var jsdom = require("jsdom").jsdom;
-	var markup = '<html><body><h1 class="example">Hello World!</h1><p class="hello">Heya Big World!</body></html>';
+	var markup = '<html><body></body></html>';
 	var doc = jsdom(markup);
 	var window = doc.parentWindow;
 	var $ = require('jquery')(window)
-  
 }
 
 var calculator = 
