@@ -1,7 +1,11 @@
 if(typeof exports !== 'undefined')
 {
-	var $ = require('jquery');
-	var jQuery = require('jquery');
+	var jsdom = require('jsdom').jsdom
+  , myWindow = jsdom().createWindow()
+  , $ = require('jQuery')
+  , jq = require('jQuery').create()
+  , jQuery = require('jQuery').create(myWindow)
+  ;
 }
 
 var calculator = 
