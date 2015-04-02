@@ -15,7 +15,7 @@ var calculator =
 	operation: '', // Current operation
 	mem: null, // Saved value (so that we can, i.e. sum 2 values)
 	operationSign: '',
-	result: '',
+	result: 0,
 	
 	bindKeys: function()
 	{
@@ -223,6 +223,7 @@ var calculator =
 				// See if we can do the selected operation
 				if(typeof calculator.operations[calculator.operation] != 'undefined')
 				{
+					if(calculator.mem)
 					// Perform the selected operation
 					calculator.setVal(calculator.operations[calculator.operation]());
 				}
