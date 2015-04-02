@@ -1,9 +1,10 @@
 if(typeof exports !== 'undefined')
 {
-	var jsdom = require('jsdom').jsdom;
-	var myWindow = jsdom().defaultView;
-	var $ = require('jquery').create(myWindow);
-	var jQuery = $;
+	var jsdom = require("jsdom").jsdom;
+	var markup = '<html><body><h1 class="example">Hello World!</h1><p class="hello">Heya Big World!</body></html>';
+	var doc = jsdom(markup);
+	var window = doc.parentWindow;
+	var $ = require('jquery')(window)
   
 }
 
