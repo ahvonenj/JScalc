@@ -276,5 +276,4 @@ var calculator =
 if(typeof exports !== 'undefined')
 {
 	exports.calculator = calculator;
-	exports.jQuery = jQuery;
 }
