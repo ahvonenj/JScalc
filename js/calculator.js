@@ -2,9 +2,9 @@ if(typeof exports !== 'undefined')
 {
 	var jsdom = require('jsdom').jsdom
   , myWindow = jsdom().createWindow()
-  , $ = require('jQuery')
-  , jq = require('jQuery').create()
-  , jQuery = require('jQuery').create(myWindow)
+  , $ = require('jquery')
+  , jq = require('jquery').create()
+  , jQuery = require('jquery').create(myWindow)
   ;
 }
 
