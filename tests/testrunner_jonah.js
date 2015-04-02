@@ -1,5 +1,5 @@
 var testrunner = require("qunit");
-var $ = require('jquery'),
+var $ = require('jquery');
 var jQuery = require('jquery');
 
 testrunner.setup(
